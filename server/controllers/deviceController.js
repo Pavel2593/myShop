@@ -5,7 +5,7 @@ const ApiError = require('./../error/ApiError')
 const { where } = require('sequelize')
 
 class DeviceController {
-    async creat(request, response) {
+    async creat(request, response, next) {
         try {
             let { name, price, brandId, typeId, info } = request.body
             const { img } = request.files
