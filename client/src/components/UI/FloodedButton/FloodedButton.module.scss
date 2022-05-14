@@ -1,0 +1,24 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.button {
+    height: 36px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 22px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+    color: $white;
+    background: linear-gradient(180deg, $purple 0%, $purpleGradient 100%);
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: initial;
+    }
+}
