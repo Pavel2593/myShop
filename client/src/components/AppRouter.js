@@ -8,7 +8,6 @@ const AppRouter = () => {
     const isAuth = false
     const { user } = useContext(Context)
     console.log(user)
-
     return (
         <Routes>
             {isAuth &&

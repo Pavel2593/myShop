@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { BorderButton } from '../UI'
-// import cl from './Authorization.module.scss'
+import { Context } from '../..'
+import AuthorizationPopup from '../AuthorizationPopup/AuthorizationPopup'
 
-const Authorization = ({ children }) => {
+const Authorization = ({ className }) => {
+    const { user } = useContext(Context)
+    const isAuth = user.isAuth
+    const [showAuthPopup, setShowAuthPopup] = useState(false)
+
     return (
-        <div>
-            <BorderButton>{children}</BorderButton>
+        <div className={className}>
+            <BorderButton
+                onClick={() => { setShowAuthPopup(true) }}
+            >
+                {isAuth ? 'Выйти' : 'Войти'}
+            </BorderButton>
+            {
+                showAuthPopup &&
+                <AuthorizationPopup
+                    showPopup={showAuthPopup}
+                    setShowPopup={setShowAuthPopup}
+                />
+            }
         </div>
     )
 }

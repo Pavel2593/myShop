@@ -1,6 +1,6 @@
 import React from 'react'
 import Authorization from '../Authorization/Authorization'
-import Registration from '../Registration/Registration'
+import { FloodedButton } from '../UI'
 import cl from './Header.module.scss'
 
 const Header = () => {
@@ -8,8 +8,8 @@ const Header = () => {
         <header className={cl.header}>
             <div>myShop</div>
             <div className={cl.header__auth}>
-                <Authorization>ВОЙТИ</Authorization>
-                <Registration>ЗАРЕГИСТРИРОВАТЬСЯ</Registration>
+                <Authorization className={cl.header_mr} />
+                <FloodedButton>Регистрация</FloodedButton>
             </div>
         </header>
     )

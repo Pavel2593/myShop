@@ -4,9 +4,7 @@ import App from './App';
 import UseStore from './store/UseStore';
 import reportWebVitals from './reportWebVitals';
 import DeviceStore from './store/DeviceStore';
-
 import './assets/styles/main.scss';
-
 export const Context = createContext(null)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

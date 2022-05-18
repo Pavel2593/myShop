@@ -7,11 +7,11 @@
     background-color: $darkShade5;
     box-shadow: $boxShadow;
 
+    &_mr {
+        margin-right: 20px;
+    }
+
     &__auth {
         display: flex;
-
-        & div:not(:last-child) {
-            margin-right: 20px;
-        }
     }
 }
