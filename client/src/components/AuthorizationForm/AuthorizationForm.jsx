@@ -10,7 +10,8 @@ const AuthorizationForm = ({ setShow }) => {
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
 
-    const singUp = async () => {
+    const singUp = async (e) => {
+        e.preventDefault()
         try {
             const data = await login(email, password)
             console.log(data)
@@ -24,7 +25,7 @@ const AuthorizationForm = ({ setShow }) => {
     }
 
     return (
-        <div>
+        <form onSubmit={singUp}>
             <DefaultInput
                 className='mb-20'
                 placeholder='Email'
@@ -41,7 +42,7 @@ const AuthorizationForm = ({ setShow }) => {
             />
             <FloodedButton
                 className={'mb-20'}
-                onClick={singUp}
+                type="submit"
             >
                 Войти
             </FloodedButton>
@@ -49,7 +50,7 @@ const AuthorizationForm = ({ setShow }) => {
                 errorMessage &&
                 <ErrorText className={'mb-20'}>{errorMessage}</ErrorText>
             }
-        </div>
+        </form>
     )
 }
 
