@@ -8,13 +8,13 @@ import { DefaultLoader } from './components/UI';
 import { check } from './http/userAPI';
 
 const App = observer(() => {
-    const {user} = useContext(Context)
+    const { user } = useContext(Context)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        check().then((result) => {
-            user.setUser(result)
-            user.setIsAuth(result)
+        check().then((data) => {
+            user.setUser(data.role)
+            user.setIsAuth(data.role ? true : false)
         }).catch((e) => {
             console.log(e)
         }).finally(() => {
@@ -23,7 +23,7 @@ const App = observer(() => {
     }, [])
 
     if (loading) {
-        return <DefaultLoader/>
+        return <DefaultLoader />
     }
 
     return (

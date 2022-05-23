@@ -6,15 +6,14 @@ import ErrorText from '../UI/ErrorText/ErrorText'
 
 const AuthorizationForm = ({ setShow }) => {
     const { user } = useContext(Context)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('test1@mail.ru')
+    const [password, setPassword] = useState('123123123')
     const [errorMessage, setErrorMessage] = useState('')
-
     const singUp = async (e) => {
         e.preventDefault()
         try {
             const data = await login(email, password)
-            user.setUser(data)
+            user.setUser(data.role)
             user.setIsAuth(true)
             setShow(false)
             setErrorMessage('')
@@ -28,6 +27,7 @@ const AuthorizationForm = ({ setShow }) => {
             <DefaultInput
                 className='mb-20'
                 placeholder='Email'
+                value={email}
                 onChange={(e) => {
                     setEmail(e.target.value)
                 }}
@@ -35,6 +35,7 @@ const AuthorizationForm = ({ setShow }) => {
             <DefaultInput
                 className='mb-20'
                 placeholder='Пароль'
+                value={password}
                 onChange={(e) => {
                     setPassword(e.target.value)
                 }}

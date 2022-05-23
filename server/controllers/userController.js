@@ -62,6 +62,26 @@ class UserController {
         const token = generateJwt(request.user.id, request.user.email, request.user.role)
         return response.json({token})
     }
+
+    async getAll(request, response, next) {
+        let { limit, page } = request.query
+        page = page || 1
+        limit = limit || 20
+        let offset = page * limit - limit
+        let users = await User.findAndCountAll({
+            limit,
+            offset,
+        })
+        if (users.count % limit == 0) {
+            const pageCount = users.count / limit
+            users.pageCount = pageCount
+        } else {
+            const pageCount = Math.ceil(users.count / limit)
+            users.pageCount = pageCount
+        }
+
+        return response.json(users)
+    }
 }
 
 module.exports = new UserController()
