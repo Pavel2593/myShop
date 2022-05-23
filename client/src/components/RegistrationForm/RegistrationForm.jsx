@@ -1,19 +1,19 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { Context } from '../..'
-import { login } from '../../http/userAPI'
+import { registration } from '../../http/userAPI'
 import { DefaultInput, FloodedButton } from '../UI'
 import ErrorText from '../UI/ErrorText/ErrorText'
 
-const AuthorizationForm = ({ setShow }) => {
+const RegistrationForm = ({ setShow }) => {
     const { user } = useContext(Context)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
 
-    const singUp = async (e) => {
+    const singIn = async (e) => {
         e.preventDefault()
         try {
-            const data = await login(email, password)
+            const data = await registration(email, password)
             user.setUser(data)
             user.setIsAuth(true)
             setShow(false)
@@ -22,9 +22,9 @@ const AuthorizationForm = ({ setShow }) => {
             setErrorMessage(e?.response?.data.message)
         }
     }
-
+    
     return (
-        <form onSubmit={singUp}>
+        <form onSubmit={singIn}>
             <DefaultInput
                 className='mb-20'
                 placeholder='Email'
@@ -43,14 +43,14 @@ const AuthorizationForm = ({ setShow }) => {
                 className={'mb-20'}
                 type="submit"
             >
-                Войти
+                Зарегистрироваться
             </FloodedButton>
             {
                 errorMessage &&
-                <ErrorText className={'mb-20'}>{errorMessage}</ErrorText>
+                <ErrorText>{errorMessage}</ErrorText>
             }
         </form>
     )
 }
 
-export default AuthorizationForm
+export default RegistrationForm

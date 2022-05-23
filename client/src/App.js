@@ -1,15 +1,37 @@
-import React from 'react'
+import { observer } from 'mobx-react-lite';
+import React, { useContext, useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { Context } from '.';
 import AppRouter from './components/AppRouter';
 import Header from './components/Header/Header';
+import { DefaultLoader } from './components/UI';
+import { check } from './http/userAPI';
 
-function App() {
+const App = observer(() => {
+    const {user} = useContext(Context)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        check().then((result) => {
+            user.setUser(result)
+            user.setIsAuth(result)
+        }).catch((e) => {
+            console.log(e)
+        }).finally(() => {
+            setLoading(false)
+        })
+    }, [])
+
+    if (loading) {
+        return <DefaultLoader/>
+    }
+
     return (
         <BrowserRouter>
-            <Header/>
-            <AppRouter/>
+            <Header />
+            <AppRouter />
         </BrowserRouter>
     );
-}
+})
 
 export default App;

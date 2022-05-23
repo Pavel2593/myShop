@@ -9,7 +9,6 @@ const Header = () => {
             <div>myShop</div>
             <div className={cl.header__auth}>
                 <Authorization className={cl.header_mr} />
-                <FloodedButton>Регистрация</FloodedButton>
             </div>
         </header>
     )

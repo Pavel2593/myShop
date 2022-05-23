@@ -5,9 +5,8 @@ import Shop from '../pages/Shop'
 import { Context } from '..'
 
 const AppRouter = () => {
-    const isAuth = false
     const { user } = useContext(Context)
-    console.log(user)
+    const isAuth = user.isAuth
     return (
         <Routes>
             {isAuth &&
