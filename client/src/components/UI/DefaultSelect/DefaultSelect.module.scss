@@ -1,0 +1,103 @@
+@use './../../../assets/styles/_main/color' as *;
+
+$borderSetting: 1px solid $darkShade25;
+$borderHoverSetting: 1px solid $darkShade75;
+$paddingItem: 10px 36px 10px 15px;
+
+.active {
+    position: relative;
+}
+
+.select {
+    width: 100%;
+    padding: $paddingItem;
+    box-sizing: border-box;
+    border: 1px solid $darkShade25;
+    border-radius: 6px;
+    position: relative;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    white-space: nowrap;
+    color: $darkShade75;
+    background-color: $white;
+    cursor: pointer;
+
+    &:hover {
+        border-top: $borderHoverSetting;
+        border-color: $darkShade75;
+    }
+
+    &::before {
+        content: '';
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url('./../../../assets/images/icons/arrowDown.svg');
+    }
+
+    .active &::before {
+        transform: rotate(180deg) translate(0, 50%);
+    }
+
+    .active & {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+.options {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: $white;
+    cursor: pointer;
+}
+
+.option {
+    width: 100%;
+    padding: $paddingItem;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    white-space: nowrap;
+    color: $darkShade75;
+    border-right: $borderSetting;
+    border-bottom: $borderSetting;
+    border-left: $borderSetting;
+
+    &:hover {
+        margin-top: -1px;
+        border-top: $borderHoverSetting;
+        border-color: $darkShade75;
+    }
+
+    &:last-child {
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+}
+
+.animation {
+    &Enter {
+        opacity: 0;
+
+        &Active {
+            opacity: 1;
+            transition: all 500ms ease-in;
+        }
+    }
+
+    &Exit {
+        &Active {
+            display: none;
+            transition: all 500ms ease-in;
+        }
+    }
+}

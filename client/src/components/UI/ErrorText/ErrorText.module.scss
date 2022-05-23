@@ -1,0 +1,9 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.text {
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 24px;
+    color: $error
+}

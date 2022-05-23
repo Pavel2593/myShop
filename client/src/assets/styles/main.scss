@@ -1,0 +1,46 @@
+@use './_main/reset';
+@use './_main/font';
+@use './_main/color' as *;
+@use './_main/styles';
+
+html, body, #root {
+    height: 100vh;
+}
+
+.app {
+    height: 100%;
+    width: 1200px;
+    padding: {
+        right: 20px;
+        left: 20px;
+    }
+    box-sizing: border-box;
+    
+    margin: {
+        right: auto;
+        left: auto;
+    };
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $darkShade5;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}

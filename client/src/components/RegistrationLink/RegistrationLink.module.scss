@@ -1,0 +1,18 @@
+@use './../../assets/styles/_main/color' as *;
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: $black;
+}
+
+.btn {
+    max-width: 100px;
+}
