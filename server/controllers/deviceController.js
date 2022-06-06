@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const path = require('path')
-const { Device, DeviceInfo } = require('./../models/models')
+const { Device, DeviceInfo, Brand } = require('./../models/models')
 const ApiError = require('./../error/ApiError')
 const { where } = require('sequelize')
 
@@ -45,6 +45,7 @@ class DeviceController {
         let devices
         if (!brandId && !typeId) {
             devices = await Device.findAndCountAll({
+                include: [Brand],
                 limit,
                 offset,
             })

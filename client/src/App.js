@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import React, { useContext, useEffect, useState } from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import { Context } from '.';
 import AppRouter from './components/AppRouter';
 import Header from './components/Header/Header';
@@ -27,10 +26,10 @@ const App = observer(() => {
     }
 
     return (
-        <BrowserRouter>
+        <div className='page'>
             <Header />
             <AppRouter />
-        </BrowserRouter>
+        </div>
     );
 })
 

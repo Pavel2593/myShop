@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { authRoutes, publicRoutes, adminRoutes } from './../routes'
 import { Route, Routes } from 'react-router-dom'
-import Shop from '../pages/Shop'
+import Shop from '../pages/Shop/Shop'
 import { Context } from '..'
 import { observer } from 'mobx-react-lite'
 

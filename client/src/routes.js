@@ -1,9 +1,8 @@
 import Admin from './pages/Admin'
 import Basket from './pages/Basket'
-import Shop from './pages/Shop'
-import Auth from './pages/Auth'
+import Shop from './pages/Shop/Shop'
 import DevicePage from './pages/DevicePage'
-import { ADMIN_ROUTER, BASKET_ROUTER, DEVICE_ROUTER, LOGIN_ROUTER, REGISTRATION_ROUTER, SHOP_ROUTER } from './utils/consts'
+import { ADMIN_ROUTER, BASKET_ROUTER, DEVICE_ROUTER, SHOP_ROUTER } from './utils/consts'
 
 export const adminRoutes = [
     {
@@ -24,14 +23,6 @@ export const publicRoutes = [
     {
         path: SHOP_ROUTER,
         Component: Shop
-    },
-    {
-        path: LOGIN_ROUTER,
-        Component: Auth
-    },
-    {
-        path: REGISTRATION_ROUTER,
-        Component: Auth
     },
     {
         path: DEVICE_ROUTER + '/:id',
