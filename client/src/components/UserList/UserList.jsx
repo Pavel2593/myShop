@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../..'
-import { useFetching } from '../../hooks/useFetching'
+import { useFetching } from './../../hooks/useFetching'
 import { getUsers } from '../../http/userAPI'
 import { DefaultLoader } from '../UI'
 import cl from './UserList.module.scss'

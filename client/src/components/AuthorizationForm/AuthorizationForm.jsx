@@ -6,8 +6,8 @@ import ErrorText from '../UI/ErrorText/ErrorText'
 
 const AuthorizationForm = ({ setShow }) => {
     const { user } = useContext(Context)
-    const [email, setEmail] = useState('test1@mail.ru')
-    const [password, setPassword] = useState('123123123')
+    const [email, setEmail] = useState('admin@admin.ru')
+    const [password, setPassword] = useState('admin')
     const [errorMessage, setErrorMessage] = useState('')
     const singUp = async (e) => {
         e.preventDefault()

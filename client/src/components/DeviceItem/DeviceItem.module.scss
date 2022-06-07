@@ -2,13 +2,18 @@
 
 .item {
     width: 270px;
+    margin: 0 10px 10px;
     padding: 20px;
-    margin: 10px;
     box-sizing: border-box;
     border-radius: 4px;
     font-family: "Montserrat";
     line-height: 1.5;
     box-shadow: $boxShadow;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+        box-shadow: $boxShadowDark;
+    }
 
     &__picture {
         width: 100%;
