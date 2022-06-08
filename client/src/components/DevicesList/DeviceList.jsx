@@ -1,8 +1,12 @@
 import React from 'react'
 import DeviceItem from '../DeviceItem/DeviceItem'
+import { DefaultLoader } from '../UI'
 import cl from './DeviceList.module.scss'
 
-const DeviceList = ({ items }) => {
+const DeviceList = ({ items, isLoading }) => {
+    if (isLoading) {
+        return <DefaultLoader/>
+    }
     return (
         <div className={cl.list}>
             {items &&

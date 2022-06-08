@@ -3,20 +3,19 @@ import { fetchTypes } from '../../http/deviceAPI'
 import { useFetching } from './../../hooks/useFetching'
 import cl from './Filter.module.scss'
 
-const Filter = () => {
-    const [fetching, data, isLoading, error] = useFetching(fetchTypes)
-    console.log(data);
-    const [title, setTitle] = useState('Тип')
-    useEffect(() => {
-        fetching()
-    },[])
-
+const Filter = ({ title, items, selectedItem, changeSelected}) => {
     return (
-        <div>
-            <h2>{title}</h2>
-            {data && 
-                data.map((item) => (
-                    <div>{item.name}</div>
+        <div className={cl.item}>
+            <h2 className={cl.item__title}>{title}</h2>
+            {
+                items.map((item) => (
+                    <div
+                        key={item.id}
+                        className={cl.item__value}
+                        onClick={() => { changeSelected(item.id) }}
+                    >
+                        {item.name}
+                    </div>
                 ))
             }
         </div>

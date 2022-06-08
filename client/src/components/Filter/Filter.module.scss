@@ -1,1 +1,22 @@
 @use './../../assets/styles/_main/color' as *;
+
+.item {
+    max-width: 300px;
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+
+    &__title {
+        margin-bottom: 10px;
+        padding: 0 20px;
+    }
+
+    &__value {
+        padding: 5px 20px;
+        cursor: pointer;
+        &:hover {
+            background-color: $darkShade5;
+        }
+    }
+}

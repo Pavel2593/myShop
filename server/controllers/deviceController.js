@@ -52,6 +52,7 @@ class DeviceController {
         }
         if (brandId && !typeId) {
             devices = await Device.findAndCountAll({
+                include: [Brand],
                 where: {brandId},
                 limit,
                 offset,
@@ -59,6 +60,7 @@ class DeviceController {
         }
         if (!brandId && typeId) {
             devices = await Device.findAndCountAll({
+                include: [Brand],
                 where: {typeId},
                 limit,
                 offset,
@@ -66,6 +68,7 @@ class DeviceController {
         }
         if (brandId && typeId) {
             devices = await Device.findAndCountAll({
+                include: [Brand],
                 where: {brandId, typeId},
                 limit,
                 offset,
