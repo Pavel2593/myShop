@@ -7,7 +7,7 @@ const Filter = ({ title, items, selectedItem, changeSelected}) => {
     return (
         <div className={cl.item}>
             <h2 className={cl.item__title}>{title}</h2>
-            {
+            {items &&
                 items.map((item) => (
                     <div
                         key={item.id}
