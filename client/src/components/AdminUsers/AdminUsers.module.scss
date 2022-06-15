@@ -1,0 +1,55 @@
+@use './../../assets/styles/_main/color' as *;
+
+$border: 1px solid $darkShade25;
+$borderRadius: 6px;
+
+.table {
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+}
+
+.row {
+    padding: 20px 0;
+    display: flex;
+    font-family: 'Montserrat';
+    color: $darkShade;
+
+    &:first-child {
+        border-top-right-radius: $borderRadius;
+        border-top-left-radius: $borderRadius;
+    }
+
+    &:last-child {
+        border-bottom-right-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+    }
+
+    &:not(:last-child) {
+        border-bottom: $border;
+    }
+
+    &_title {
+        font-weight: 600;
+    }
+
+    &__col {
+        padding: 0 10px;
+    }
+
+    &__id {
+        max-width: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__email {
+        max-width: 50%;
+        width: 100%;
+    }
+    &__role {
+        max-width: 50%;
+        width: 100%;
+    }
+}

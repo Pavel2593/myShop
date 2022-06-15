@@ -1,11 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import { Context } from '../..'
-import { useFetching } from './../../hooks/useFetching'
+import React, { useEffect } from 'react'
+import { useFetching } from '../../hooks/useFetching'
 import { getUsers } from '../../http/userAPI'
-import { DefaultLoader } from '../UI'
-import cl from './UserList.module.scss'
+import cl from './AdminUsers.module.scss'
 
-const UserList = () => {
+const AdminUsers = () => {
     const [fetching, data, isLoading, error] = useFetching(getUsers)
     const rows = data.rows
 
@@ -38,4 +36,4 @@ const UserList = () => {
     )
 }
 
-export default UserList
+export default AdminUsers

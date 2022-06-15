@@ -15,7 +15,7 @@ const Header = observer(() => {
             <Link to='/'>myShop</Link>
             <div className={cl.header__auth}>
                 {isRoleAdmin &&
-                    <Link to={ADMIN_ROUTER} className={cl.header_mr} >
+                    <Link to={ADMIN_ROUTER.adminUsers} className={cl.header_mr} >
                         <FloodedButton>
                             Админка
                         </FloodedButton>

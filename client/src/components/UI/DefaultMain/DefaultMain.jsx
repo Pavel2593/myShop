@@ -1,9 +1,13 @@
 import React from 'react'
 import cl from './DefaultMain.module.scss'
 
-const DefaultMain = ({ children }) => {
+const DefaultMain = ({ children, flexRow }) => {
+    const mainClasses = [cl.main]
+    if (flexRow) {
+        mainClasses.push(cl.main_flexRow);
+    }
     return (
-        <main className={cl.main}>
+        <main className={mainClasses.join(' ')}>
             {children}
         </main>
     )

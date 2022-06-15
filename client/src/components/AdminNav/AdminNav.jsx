@@ -1,9 +1,21 @@
-import cl from './Admin.module.scss'
+import cl from './AdminNav.module.scss'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { adminRoutes } from '../../routes'
 
-const AdminNav = () => {
+
+const AdminNav = ({ adminPath }) => {
+    console.log(adminPath)
     return (
-        <div>AdminNav</div>
+        <div>
+            {
+                adminRoutes.map(({ path, name }) => (
+                    <Link to={path} key={path}>
+                        <div>{name}</div>
+                    </Link>
+                ))
+            }
+        </div>
     )
 }
 

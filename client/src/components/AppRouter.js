@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Shop from '../pages/Shop/Shop'
 import { Context } from '..'
 import { observer } from 'mobx-react-lite'
+import Admin from '../pages/Admin/Admin'
 
 const AppRouter = observer(() => {
     const { user } = useContext(Context)
@@ -12,15 +13,16 @@ const AppRouter = observer(() => {
     return (
         <Routes>
             {isAdmin &&
-                adminRoutes.map(({ path, Component }) =>
+                adminRoutes.map(({ path, Component, SubComponent }) =>
                     <Route
                         key={path}
                         path={path}
-                        element={<Component />}
+                        element={<Component SubComponent={SubComponent}/>}
                         exact
                     />
                 )
             }
+            <Route path='/admin' element={<Admin/>} />
             {isAuth &&
                 authRoutes.map(({ path, Component }) => 
                     <Route
