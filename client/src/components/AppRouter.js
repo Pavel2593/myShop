@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { authRoutes, publicRoutes, adminRoutes } from './../routes'
+import { authRoutes, publicRoutes, adminRoutes, adminRoutesItem } from './../routes'
 import { Route, Routes } from 'react-router-dom'
 import Shop from '../pages/Shop/Shop'
 import { Context } from '..'
@@ -13,11 +13,21 @@ const AppRouter = observer(() => {
     return (
         <Routes>
             {isAdmin &&
+                adminRoutesItem.map(({ path, Component, SubComponent }) =>
+                    <Route
+                        key={path}
+                        path={path}
+                        element={<Component SubComponent={SubComponent} />}
+                        exact
+                    />
+                )
+            }
+            {isAdmin &&
                 adminRoutes.map(({ path, Component, SubComponent }) =>
                     <Route
                         key={path}
                         path={path}
-                        element={<Component SubComponent={SubComponent}/>}
+                        element={<Component SubComponent={SubComponent} adminPath={path}/>}
                         exact
                     />
                 )

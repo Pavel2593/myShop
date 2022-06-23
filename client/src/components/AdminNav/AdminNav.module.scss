@@ -1,4 +1,23 @@
-.adminNav {
-    display: flex;
-    flex-direction: column;
+@use './../../assets/styles/_main/color' as *;
+.AdminNav {
+    &__link {
+        padding: 10px 20px;
+        font-family: "Montserrat";
+        text-decoration: none;
+        cursor: pointer;
+        color: $darkShade;
+    
+        &:hover {
+            background-color: $darkShade5;
+        }
+    }
+}
+
+.AdminNav__link.AdminNav_selected {
+    color: $white;
+    background-color: $purple;
+
+    &:hover {
+        background-color: $purple;
+    }
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useFetching } from '../../hooks/useFetching'
 import { getUsers } from '../../http/userAPI'
 import cl from './AdminUsers.module.scss'
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const AdminUsers = () => {
     const [fetching, data, isLoading, error] = useFetching(getUsers)

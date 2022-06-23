@@ -8,9 +8,7 @@ const Admin = ({ adminPath, SubComponent }) => {
         <DefaultMain
             flexRow={true}
         >
-            <DefaultLeftBlock>
-                <AdminNav adminPath={adminPath} />
-            </DefaultLeftBlock>
+            <AdminNav adminPath={adminPath} />
             <SubComponent />
         </DefaultMain>
     )

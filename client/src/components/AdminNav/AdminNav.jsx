@@ -2,20 +2,27 @@ import cl from './AdminNav.module.scss'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { adminRoutes } from '../../routes'
+import DefaultLeftBlock from '../UI/DefaultLeftBlock/DefaultLeftBlock'
 
 
 const AdminNav = ({ adminPath }) => {
     console.log(adminPath)
+    const selectedClassesLink = cl.AdminNav_selected + " " + cl.AdminNav__link
+    const defaultClassesLink = cl.AdminNav__link;
     return (
-        <div>
+        <DefaultLeftBlock>
             {
                 adminRoutes.map(({ path, name }) => (
-                    <Link to={path} key={path}>
-                        <div>{name}</div>
+                    <Link
+                        to={path}
+                        key={path}
+                        className={adminPath === path ? selectedClassesLink : defaultClassesLink}
+                    >
+                        {name}
                     </Link>
                 ))
             }
-        </div>
+        </DefaultLeftBlock>
     )
 }
 

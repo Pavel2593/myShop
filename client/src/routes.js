@@ -7,6 +7,16 @@ import AdminUsers from './components/AdminUsers/AdminUsers'
 import AdminTypes from './components/AdminTypes/AdminTypes'
 import AdminBrands from './components/AdminBrands/AdminBrands'
 
+export const adminRoutesItem = [
+    {
+        name: 'Пользователи',
+        path: ADMIN_ROUTER.adminUsers + '/add' ,
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminTypes
+    },
+]
+
 export const adminRoutes = [
     {
         name: 'Пользователи',
