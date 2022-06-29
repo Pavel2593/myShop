@@ -8,16 +8,17 @@
         color: $darkShade;
     
         &:hover {
-            background-color: $darkShade5;
+            color: $white;
+            background-color: $purple;
         }
     }
 }
 
 .AdminNav__link.AdminNav_selected {
     color: $white;
-    background-color: $purple;
+    background-color: $purpleDark;
 
     &:hover {
-        background-color: $purple;
+        background-color: $purpleDark;
     }
 }

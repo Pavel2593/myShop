@@ -6,7 +6,6 @@ import DefaultLeftBlock from '../UI/DefaultLeftBlock/DefaultLeftBlock'
 
 
 const AdminNav = ({ adminPath }) => {
-    console.log(adminPath)
     const selectedClassesLink = cl.AdminNav_selected + " " + cl.AdminNav__link
     const defaultClassesLink = cl.AdminNav__link;
     return (

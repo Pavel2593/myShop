@@ -1,5 +1,9 @@
 @use './_color' as *;
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     font-family: 'Montserrat';
     font-style: normal;

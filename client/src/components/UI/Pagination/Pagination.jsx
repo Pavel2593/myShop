@@ -1,12 +1,21 @@
 import React, {useMemo} from 'react'
 import cl from './Pagination.module.scss'
-import { getPagesArray } from './../../../utils/pages'
 
 const Pagination = ({ totalPages, page, changePage, ...props}) => {
+    
+    const getPagesArray = (totalPages) => {
+        const result = []
+        for (let i = 0; i < totalPages; i++) {
+            result.push(i + 1)
+        }
+        return result
+    }
+
     const pagesArray = useMemo(() => {
 		const result = getPagesArray(totalPages)
 		return result
 	}, [totalPages])
+
 
     return (
         <div className={cl.pagination}>

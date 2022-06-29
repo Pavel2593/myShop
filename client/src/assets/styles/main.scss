@@ -27,3 +27,15 @@ html, body, #root {
 .ml-20 {
     margin-left: 20px;
 }
+
+.inline-block {
+    display: inline-block;
+}
+
+.box-shadow {
+    box-shadow: $boxShadow;
+
+    &:hover {
+        box-shadow: $boxShadowDark;
+    }
+}

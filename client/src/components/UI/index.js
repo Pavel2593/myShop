@@ -3,7 +3,9 @@ import DefaultInput from './DefaultInput/DefaultInput'
 import DefaultLoader from './DefaultLoader/DefaultLoader'
 import DefaultPopup from './DefaultPopup/DefaultPopup'
 import DefaultSelect from './DefaultSelect/DefaultSelect'
+import DefaultCheckbox from './DefaultCheckbox/DefaultCheckbox'
 import FloodedButton from './FloodedButton/FloodedButton'
+import Pagination from './Pagination/Pagination'
 
 export {
     BorderButton,
@@ -12,4 +14,6 @@ export {
     DefaultPopup,
     DefaultSelect,
     FloodedButton,
+    DefaultCheckbox,
+    Pagination
 }
