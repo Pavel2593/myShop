@@ -40,7 +40,7 @@ const RegistrationForm = ({ setShow }) => {
                 }}
             />
             <FloodedButton
-                className={'mb-20'}
+                className={'mb-20 w100'}
                 type="submit"
             >
                 Зарегистрироваться
