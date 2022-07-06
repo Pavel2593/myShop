@@ -3,13 +3,21 @@ import Basket from './pages/Basket'
 import Shop from './pages/Shop/Shop'
 import DevicePage from './pages/DevicePage'
 import { ADMIN_ROUTER, BASKET_ROUTER, DEVICE_ROUTER, SHOP_ROUTER } from './utils/consts'
-import AdminTypes from './components/AdminTypes/AdminTypes'
+import AdminTypes from './pages/AdminTypes/AdminTypes'
 import AdminBrands from './components/AdminBrands/AdminBrands'
-import AdminAddUser from './components/AdminAddUser/AdminAddUser'
+import AdminAddUser from './pages/AdminAddUser/AdminAddUser'
 import AdminUser from './pages/AdminUser/AdminUser'
 import AdminUsers from './pages/AdminUsers/AdminUsers'
+import AdminAddType from './pages/AdminAddType/AdminAddType'
 
 export const adminRoutesItem = [
+    {
+        name: 'Типы',
+        path: ADMIN_ROUTER.adminTypes + '/add-type',
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminAddType
+    },
     {
         name: 'Пользователи',
         path: ADMIN_ROUTER.adminUsers + '/add-user' ,

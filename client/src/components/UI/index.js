@@ -6,6 +6,7 @@ import DefaultSelect from './DefaultSelect/DefaultSelect'
 import DefaultCheckbox from './DefaultCheckbox/DefaultCheckbox'
 import FloodedButton from './FloodedButton/FloodedButton'
 import Pagination from './Pagination/Pagination'
+import ErrorText from './ErrorText/ErrorText'
 
 export {
     BorderButton,
@@ -15,5 +16,6 @@ export {
     DefaultSelect,
     FloodedButton,
     DefaultCheckbox,
-    Pagination
+    Pagination,
+    ErrorText
 }

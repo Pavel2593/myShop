@@ -1,0 +1,13 @@
+@use './../../assets/styles/_main/color' as *;
+
+.adminTypes {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__table {
+        flex-grow: 1;
+    }
+}

@@ -1,5 +1,6 @@
 @use './_main/reset';
 @use './_main/font';
+@use './_main/AdminAddPage';
 @use './_main/color' as *;
 @use './_main/styles';
 
@@ -9,7 +10,10 @@ html, body, #root {
 
 .page {
     max-width: 1920px;
+    height: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .mt-20 {

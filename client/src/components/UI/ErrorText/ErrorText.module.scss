@@ -1,7 +1,8 @@
 @use './../../../assets/styles/_main/color' as *;
 
 .text {
-    display: inline-block;
+    display: block;
+    text-align: center;
     font-family: 'Montserrat';
     font-size: 14px;
     line-height: 24px;

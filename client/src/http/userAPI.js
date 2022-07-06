@@ -38,6 +38,11 @@ export const addUser = async (email, password, role) => {
     return data
 }
 
+export const updateUser = async (id, email, role) => {
+    const { data } = await $authHost.patch('api/users/update', { id, email, role })
+    return data
+}
+
 export const deleteUsers = async (listId) => {
     const { data } = await $authHost.delete('api/users/delete', { data: { listId } })
     return data

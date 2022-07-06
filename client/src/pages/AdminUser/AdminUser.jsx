@@ -1,25 +1,27 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { BorderButton, DefaultInput, DefaultLoader, DefaultSelect, FloodedButton } from '../../components/UI';
 import { useFetching } from '../../hooks/useFetching';
-import { getUser } from '../../http/userAPI';
+import { getUser, updateUser } from '../../http/userAPI';
 import { getDate } from '../../utils/getDate';
 import { searchOptionName } from '../../utils/searchOptionName';
 import cl from './AdminUser.module.scss'
 
 const AdminUser = () => {
-    const params = useParams();
+    const navigate = useNavigate()
+    const params = useParams()
     const id = params.id
-    const [fetching, data, isLoading, error] = useFetching(getUser)
+    const [fetching, data, isLoading] = useFetching(getUser)
+    const [fetchingUpdate, dataUpdate] = useFetching(updateUser)
+
     useEffect(() => {
         fetching(id)
-    }, [])
+    }, [dataUpdate])
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('')
-    const roleName = ''
     const roles = [
         {
             name: 'Админ',
@@ -31,16 +33,15 @@ const AdminUser = () => {
         }
     ]
 
-
     useEffect(() => {
         setEmail(data.email)
         setRole(data.role)
     }, [data])
 
     if (isLoading) {
-        return <DefaultLoader/>
+        return <DefaultLoader />
     }
-    
+
     return (
         <form className={cl.user_info}>
             <div className={cl.user_info__row}>
@@ -86,10 +87,22 @@ const AdminUser = () => {
             <div className={cl.user_info__row}>
                 <FloodedButton
                     className='mr-20'
+                    onClick={(event) => {
+                        event.preventDefault()
+                        fetchingUpdate(id, email, role)
+                        navigate('/admin/users')
+                    }}
                 >
                     Сохранить
                 </FloodedButton>
-                <BorderButton>Назад</BorderButton>
+                <BorderButton
+                    onClick={(event) => {
+                        event.preventDefault()
+                        navigate(-1)
+                    }}
+                >
+                    Назад
+                </BorderButton>
             </div>
         </form>
 
