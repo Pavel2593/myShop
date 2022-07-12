@@ -17,7 +17,6 @@ export const useFetching = (callback) => {
                 setError(e.message)
             }
         } finally {
-            console.log(data)
             setIsLoading(false)
         }
     }

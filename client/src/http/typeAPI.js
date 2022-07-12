@@ -9,3 +9,8 @@ export const addType = async (name) => {
     const data = await $authHost.post('api/types/add', { name })
     return data
 }
+
+export const deleteTypes = async (listId) => {
+    const { data } = await $authHost.delete('api/types/delete', { data: { listId } })
+    return data
+}

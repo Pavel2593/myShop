@@ -119,6 +119,17 @@ class UserController {
         return response.json({ user })
     }
 
+    async updateUser(request, response, next) {
+        const {id, email, role} = request.body
+        const update = await User.upsert({
+            id: id,
+            email: email,
+            role: role
+        });
+
+        return response.json(update)
+    }
+
     async removeUsers(request, response, next) {
         const { listId } = request.body;
         

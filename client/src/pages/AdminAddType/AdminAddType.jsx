@@ -9,11 +9,28 @@ const AdminAddType = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
     const [fetching, data, isLoading, error] = useFetching(addType)
+    const [textError, setTextError] = useState(error)
     useEffect(() => {
         if (data?.status === 200) {
             navigate('/admin/users')
         }
     }, [data])
+
+    useEffect(() => {
+        setTextError(error)
+    }, [error])
+    
+
+    const addClickButton = (event) => {
+        event.preventDefault()
+        if (name) {
+            fetching(name)
+            setTextError(error)
+        } else {
+            setTextError('Заполните поле')
+        }
+    }
+    
 
     return (
         <form className='admin-add-page'>
@@ -28,16 +45,13 @@ const AdminAddType = () => {
                 />
             </div>
             {
-                error &&
-                <ErrorText>{error}</ErrorText>
+                textError &&
+                <ErrorText>{textError}</ErrorText>
             }
             <div className='admin-add-page__row'>
                 <FloodedButton
                     className='mr-20'
-                    onClick={(event) => {
-                        event.preventDefault()
-                        fetching(name)
-                    }}
+                    onClick={addClickButton}
                 >
                     Добавить
                 </FloodedButton>
