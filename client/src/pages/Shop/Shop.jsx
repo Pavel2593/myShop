@@ -12,17 +12,21 @@ const Shop = () => {
     const limit = 20;
     const [typeId, setTypeId] = useState(null)
     const [brandId, setBrandId] = useState(null)
-    const [fetchingDevices, dataDevices, isLoadingDevices] = useFetching(fetchDevices)
-    const [fetchingTypes, dataTypes] = useFetching(getTypes)
-    const [fetchingBrands, dataBrands] = useFetching(fetchBrands)
+    const resultGetDevices = useFetching(fetchDevices)
+    const resultGetTypes = useFetching(getTypes)
+    const resultGetBrands = useFetching(fetchBrands)
 
     useEffect(() => {
-        fetchingDevices(brandId, typeId, limit)
+        // other code
+        resultGetDevices.fetching(brandId, typeId, limit)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [brandId, typeId])
 
     useEffect(() => {
-        fetchingTypes()
-        fetchingBrands()
+        // other code
+        resultGetTypes.fetching()
+        resultGetBrands.fetching()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -31,13 +35,13 @@ const Shop = () => {
                 <DefaultLeftBlock>
                     <Filter
                         title='Тип'
-                        items={dataTypes}
+                        items={resultGetTypes.data}
                         selectedItem={typeId}
                         changeSelected={setTypeId}
                     />
                     <Filter
                         title='Бренд'
-                        items={dataBrands}
+                        items={resultGetBrands.data}
                         selectedItem={brandId}
                         changeSelected={setBrandId}
                     />
@@ -58,9 +62,9 @@ const Shop = () => {
 
                 </DefaultLeftBlock>
                 <DeviceList
-                    isLoading={isLoadingDevices}
-                    count={dataDevices.count}
-                    items={dataDevices.rows}
+                    isLoading={resultGetDevices.isLoading}
+                    count={resultGetDevices.data.count}
+                    items={resultGetDevices.data.rows}
                 />
             </section>
         </DefaultMain>

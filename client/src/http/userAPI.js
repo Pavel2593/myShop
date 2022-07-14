@@ -24,26 +24,26 @@ export const check = async () => {
 }
 
 export const getUsers = async (page, limit) => {
-    const { data } = await $authHost.get('api/users', { params: { page: page, limit: limit } })
-    return data
+    const response = await $authHost.get('api/users', { params: { page: page, limit: limit } })
+    return response
 }
 
 export const getUser = async (id) => {
-    const { data } = await $authHost.get('api/users/get-one', { params: { id: id } })
-    return data
+    const response = await $authHost.get('api/users/get-one', { params: { id: id } })
+    return response
 }
 
 export const addUser = async (email, password, role) => {
-    const { data } = await $authHost.post('api/users/add', { email, password, role })
-    return data
+    const response = await $authHost.post('api/users/add', { email, password, role })
+    return response
 }
 
 export const updateUser = async (id, email, role) => {
-    const { data } = await $authHost.patch('api/users/update', { id, email, role })
-    return data
+    const response = await $authHost.patch('api/users/update', { id, email, role })
+    return response
 }
 
 export const deleteUsers = async (listId) => {
-    const { data } = await $authHost.delete('api/users/delete', { data: { listId } })
-    return data
+    const response = await $authHost.delete('api/users/delete', { data: { listId } })
+    return response
 }

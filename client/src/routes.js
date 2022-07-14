@@ -3,12 +3,15 @@ import Basket from './pages/Basket'
 import Shop from './pages/Shop/Shop'
 import DevicePage from './pages/DevicePage'
 import { ADMIN_ROUTER, BASKET_ROUTER, DEVICE_ROUTER, SHOP_ROUTER } from './utils/consts'
-import AdminTypes from './pages/AdminTypes/AdminTypes'
-import AdminBrands from './components/AdminBrands/AdminBrands'
+import AdminBrands from './pages/AdminBrands/AdminBrands'
+import AdminAddBrand from './pages/AdminAddBrand/AdminAddBrand'
 import AdminAddUser from './pages/AdminAddUser/AdminAddUser'
 import AdminUser from './pages/AdminUser/AdminUser'
 import AdminUsers from './pages/AdminUsers/AdminUsers'
 import AdminAddType from './pages/AdminAddType/AdminAddType'
+import AdminType from './pages/AdminType/AdminType'
+import AdminTypes from './pages/AdminTypes/AdminTypes'
+import AdminBrand from './pages/AdminBrand/AdminBrand'
 
 export const adminRoutesItem = [
     {
@@ -17,6 +20,27 @@ export const adminRoutesItem = [
         role: process.env.REACT_APP_USER_ADMIN,
         Component: Admin,
         SubComponent: AdminAddType
+    },
+    {
+        name: 'Типы',
+        path: ADMIN_ROUTER.adminTypes + '/:id',
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminType
+    },
+    {
+        name: 'Бренд',
+        path: ADMIN_ROUTER.adminBrands + '/add-brand',
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminAddBrand
+    },
+    {
+        name: 'Бренд',
+        path: ADMIN_ROUTER.adminBrands + '/:id',
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminBrand
     },
     {
         name: 'Пользователи',

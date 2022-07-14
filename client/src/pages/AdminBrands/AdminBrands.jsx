@@ -1,31 +1,26 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useFetching } from '../../hooks/useFetching'
-import { getUsers, deleteUsers } from '../../http/userAPI'
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
 import { getDate } from '../../utils/getDate';
 import { Link } from 'react-router-dom';
 import { BorderButton, DefaultLoader, FloodedButton } from '../../components/UI';
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import { deleteBrands, getBrands } from '../../http/brandAPI';
 
-const AdminUsers = () => {
-    const resultGet = useFetching(getUsers)
-    const resultDelete = useFetching(deleteUsers)
+const AdminBrands = () => {
+    const resultGet = useFetching(getBrands)
+    const resultDelete = useFetching(deleteBrands)
     const [checkedItems, setCheckedItems] = useState([])
-    
+
     useEffect(() => {
         // other code
         resultGet.fetching()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultDelete.data])
 
-
-    let rows = []
-    if (resultGet.data) {
-        rows = resultGet.data?.rows
-    }
-    const copyData = JSON.parse(JSON.stringify(rows))
+    const copyData = JSON.parse(JSON.stringify(resultGet.data))
     if (copyData) {
         copyData.map((row) => {
             const creatAt = getDate(row.createdAt)
@@ -43,8 +38,8 @@ const AdminUsers = () => {
     return (
         <div className='admin__wrapper'>
             <div>
-                <Link to='./add-user' className='inline-block mb-20 mr-20'>
-                    <BorderButton className='box-shadow'>Добавить пользователя</BorderButton>
+                <Link to='./add-brand' className='inline-block mb-20 mr-20'>
+                    <BorderButton className='box-shadow'>Добавить тип</BorderButton>
                 </Link>
                 {(checkedItems.length !== 0) &&
                     <div className='inline-block'>
@@ -64,9 +59,8 @@ const AdminUsers = () => {
                         rows={copyData}
                         columns={[
                             { field: 'id', headerName: 'id', width: 80 },
-                            { field: 'email', headerName: 'email', width: 250 },
-                            { field: 'role', headerName: 'Роль', width: 150 },
-                            { field: 'createdAt', headerName: 'Дата создания', width: 200 },
+                            { field: 'name', headerName: 'Название', width: 250 },
+                            { field: 'createdAt', headerName: 'Дата создания', width: 160 },
                             {
                                 field: 'updatedAt',
                                 headerName: 'Дата обновления',
@@ -98,4 +92,4 @@ const AdminUsers = () => {
     )
 }
 
-export default AdminUsers
+export default AdminBrands

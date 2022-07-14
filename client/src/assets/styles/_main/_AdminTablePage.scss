@@ -1,6 +1,6 @@
-@use './../../assets/styles/_main/color' as *;
+@use './color' as *;
 
-.adminTypes {
+.admin {
     &__wrapper {
         display: flex;
         flex-direction: column;

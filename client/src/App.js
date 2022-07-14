@@ -11,6 +11,7 @@ const App = observer(() => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // other code
         check().then((data) => {
             user.setUser(data.role)
             user.setIsAuth(data.role ? true : false)
@@ -19,6 +20,7 @@ const App = observer(() => {
         }).finally(() => {
             setLoading(false)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (loading) {

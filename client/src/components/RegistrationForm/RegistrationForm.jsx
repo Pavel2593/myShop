@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../..'
 import { registration } from '../../http/userAPI'
 import { DefaultInput, FloodedButton } from '../UI'

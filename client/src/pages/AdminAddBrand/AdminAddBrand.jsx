@@ -3,18 +3,17 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BorderButton, DefaultInput, ErrorText, FloodedButton } from '../../components/UI'
 import { useFetching } from '../../hooks/useFetching'
-import { addType } from '../../http/typeAPI'
+import { addBrand } from '../../http/brandAPI'
 
-const AdminAddType = () => {
+const AdminAddBrand = () => {
     const navigate = useNavigate()
     const [name, setName] = useState('')
-    const resultAdd = useFetching(addType)
+    const resultAdd = useFetching(addBrand)
     const [textError, setTextError] = useState(resultAdd.error)
-    
     useEffect(() => {
         // other code
         if (resultAdd.status === 200) {
-            navigate('/admin/types')
+            navigate('/admin/brands')
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultAdd.status])
@@ -24,7 +23,7 @@ const AdminAddType = () => {
         setTextError(resultAdd.error)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultAdd.error])
-    
+
 
     const addClickButton = (event) => {
         event.preventDefault()
@@ -35,7 +34,7 @@ const AdminAddType = () => {
             setTextError('Заполните поле')
         }
     }
-    
+
     return (
         <form className='admin-add-page'>
             <div className='admin-add-page__row'>
@@ -72,4 +71,4 @@ const AdminAddType = () => {
     )
 }
 
-export default AdminAddType
+export default AdminAddBrand

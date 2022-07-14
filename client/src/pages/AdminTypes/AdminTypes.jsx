@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useFetching } from '../../hooks/useFetching'
 import { deleteTypes, getTypes } from '../../http/typeAPI'
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
-import cl from './AdminTypes.module.scss'
 import { getDate } from '../../utils/getDate';
 import { Link } from 'react-router-dom';
 import { BorderButton, DefaultLoader, FloodedButton } from '../../components/UI';
@@ -11,14 +10,17 @@ import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 
 const AdminTypes = () => {
-    const [fetching, data, isLoading, error] = useFetching(getTypes)
-    const [fetchingDelete, dataDelete] = useFetching(deleteTypes)
+    const resultGet = useFetching(getTypes)
+    const resultDelete = useFetching(deleteTypes)
     const [checkedItems, setCheckedItems] = useState([])
-    useEffect(() => {
-        fetching()
-    }, [dataDelete])
 
-    const copyData = JSON.parse(JSON.stringify(data))
+    useEffect(() => {
+        // other code
+        resultGet.fetching()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [resultDelete.data])
+
+    const copyData = JSON.parse(JSON.stringify(resultGet.data))
     if (copyData) {
         copyData.map((row) => {
             const creatAt = getDate(row.createdAt)
@@ -29,35 +31,35 @@ const AdminTypes = () => {
         })
     }
 
-    if (isLoading) {
+    if (resultGet.isLoading) {
         return <DefaultLoader />
     }
 
     return (
-        <div className={cl.adminTypes__wrapper}>
+        <div className='admin__wrapper'>
             <div>
                 <Link to='./add-type' className='inline-block mb-20 mr-20'>
-                    <BorderButton className='box-shadow'>Добавить пользователя</BorderButton>
+                    <BorderButton className='box-shadow'>Добавить тип</BorderButton>
                 </Link>
                 {(checkedItems.length !== 0) &&
                     <div className='inline-block'>
                         <FloodedButton
                             className='box-shadow'
                             onClick={() => {
-                                fetchingDelete(checkedItems)
+                                resultDelete.fetching(checkedItems)
                             }}
                         >Удалить
                         </FloodedButton>
                     </div>
                 }
             </div>
-            <div className={cl.adminTypes__table}>
+            <div className='admin__table'>
                 {copyData &&
                     <DataGrid
                         rows={copyData}
                         columns={[
-                            { field: 'id', headerName: 'id', width: 50 },
-                            { field: 'name', headerName: 'Название', width: 500 },
+                            { field: 'id', headerName: 'id', width: 80 },
+                            { field: 'name', headerName: 'Название', width: 250 },
                             { field: 'createdAt', headerName: 'Дата создания', width: 160 },
                             {
                                 field: 'updatedAt',
@@ -71,7 +73,7 @@ const AdminTypes = () => {
                                             className='ml-20'
                                         >
                                             <EditIcon
-                                                className={cl.adminTypes__icon}
+                                                className='admin__icon'
                                             />
                                         </Link>
                                     </div>

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { addUser } from '../../http/userAPI'
 import { useNavigate } from "react-router-dom";
 import { useFetching } from '../../hooks/useFetching';
-import { DefaultInput, DefaultSelect, FloodedButton, BorderButton } from './../../components/UI'
-import cl from './AdminAddUser.module.scss'
+import { DefaultInput, DefaultSelect, FloodedButton, BorderButton, ErrorText } from './../../components/UI'
 
 const AdminAddUser = () => {
     const navigate = useNavigate();
@@ -20,14 +19,32 @@ const AdminAddUser = () => {
             value: 'USER',
         }
     ]
-    const [fetching, data] = useFetching(addUser)
+    const resultAdd = useFetching(addUser)
+    const [textError, setTextError] = useState(resultAdd.error)
     useEffect(() => {
-        if (data?.status === 200) {
+        // other code
+        if (resultAdd.status === 200) {
             navigate('/admin/users')
         }
-    }, [data])
-    
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [resultAdd.status])
 
+    useEffect(() => {
+        // other code
+        setTextError(resultAdd.error)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [resultAdd.error])
+
+    const addClickButton = (event) => {
+        event.preventDefault()
+        if (email && password && role) {
+            resultAdd.fetching(email, password, role)
+            setTextError(resultAdd.error)
+        } else {
+            setTextError('Заполните поля')
+        }
+    }
+    
     return (
         <form className='admin-add-page'>
             <div className='admin-add-page__row'>
@@ -58,13 +75,14 @@ const AdminAddUser = () => {
                     options={roles}
                 />
             </div>
+            {
+                textError &&
+                <ErrorText>{textError}</ErrorText>
+            }
             <div className='admin-add-page__row'>
                 <FloodedButton
                     className='mr-20'
-                    onClick={(event) => {
-                        event.preventDefault()
-                        fetching(email, password, role)
-                    }}
+                    onClick={addClickButton}
                 >
                     Добавить
                 </FloodedButton>

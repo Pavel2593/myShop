@@ -1,8 +1,8 @@
-import { $authHost, $host } from "."
+import { $host } from "."
 
 export const fetchBrands = async () => {
-    const { data } = await $host.get('api/brand')
-    return data
+    const response = await $host.get('api/brands')
+    return response
 }
 
 export const fetchDevices = async (brandId, typeId, limit , page) => {
@@ -14,6 +14,6 @@ export const fetchDevices = async (brandId, typeId, limit , page) => {
             page
         }
     }
-    const { data } = await $host.get('api/device', params)
-    return data
+    const response = await $host.get('api/device', params)
+    return response
 }

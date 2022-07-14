@@ -2,14 +2,16 @@ import { useState } from "react"
 
 export const useFetching = (callback) => {
     const [data, setData] = useState(false)
+    const [status, setStatus] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState('')
 
     const fetching = async (...args) => {
         try {
             setIsLoading(true)
-            const data = await callback(...args)
-            setData(data)
+            const response = await callback(...args)
+            setData(response.data)
+            setStatus(response.status)
         } catch (e) {
             if (e?.response?.data.message) {
                 setError(e.response.data.message)
@@ -21,5 +23,11 @@ export const useFetching = (callback) => {
         }
     }
 
-    return [fetching, data, isLoading, error]
+    return {
+        fetching,
+        isLoading,
+        data,
+        status, 
+        error
+    }
 }
