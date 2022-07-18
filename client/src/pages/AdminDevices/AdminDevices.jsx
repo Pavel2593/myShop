@@ -1,18 +1,17 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useFetching } from '../../hooks/useFetching'
-import { deleteTypes, getTypes } from '../../http/typeAPI'
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
 import { getDate } from '../../utils/getDate';
 import { Link } from 'react-router-dom';
 import { BorderButton, DefaultLoader, FloodedButton } from '../../components/UI';
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
-import { getDevices } from '../../http/deviceAPI';
+import { deleteDevices, getDevices } from '../../http/deviceAPI';
 
 const AdminDevices = () => {
     const resultGet = useFetching(getDevices)
-    const resultDelete = useFetching(deleteTypes)
+    const resultDelete = useFetching(deleteDevices)
     const [checkedItems, setCheckedItems] = useState([])
 
     useEffect(() => {

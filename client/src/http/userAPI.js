@@ -34,16 +34,16 @@ export const getUser = async (id) => {
 }
 
 export const addUser = async (email, password, role) => {
-    const response = await $authHost.post('api/users/add', { email, password, role })
+    const response = await $authHost.post('api/users', { email, password, role })
     return response
 }
 
 export const updateUser = async (id, email, role) => {
-    const response = await $authHost.patch('api/users/update', { id, email, role })
+    const response = await $authHost.patch('api/users', { id, email, role })
     return response
 }
 
 export const deleteUsers = async (listId) => {
-    const response = await $authHost.delete('api/users/delete', { data: { listId } })
+    const response = await $authHost.delete('api/users', { data: { listId } })
     return response
 }

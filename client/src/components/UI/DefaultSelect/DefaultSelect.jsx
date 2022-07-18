@@ -6,9 +6,9 @@ const DefaultSelect = ({ returnValueFunction, defaultValue, options, className }
     const [showOptions, setShowOptions] = useState(false)
     const [selectedName, setSelectedName] = useState(defaultValue)
     
-    const selectOption = (value, name) => {
+    const selectOption = (id, name) => {
         setSelectedName(name);
-        returnValueFunction(value);
+        returnValueFunction(id);
         setShowOptions(false);
     }
 
@@ -27,7 +27,7 @@ const DefaultSelect = ({ returnValueFunction, defaultValue, options, className }
             </div>
             <CSSTransition
                 in={showOptions}
-                timeout={300}
+                timeout={150}
                 classNames={{
                     enter: cl.animationEnter,
                     enterActive: cl.animationEnterActive,
@@ -40,9 +40,9 @@ const DefaultSelect = ({ returnValueFunction, defaultValue, options, className }
                     {
                         options.map((option) => (
                             <div 
-                            key={option.value} 
+                            key={option.id} 
                             className={cl.option}
-                            onClick={() => selectOption(option.value, option.name)}
+                            onClick={() => selectOption(option.id, option.name)}
                             >
                                 {option.name}
                             </div>

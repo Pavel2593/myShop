@@ -88,11 +88,11 @@ const AdminUser = () => {
                 />
             </div>
             <div className={cl.user_info__row}>
-                <p className={[cl.user_info__col20, cl.user_info_text_right].join(' ')}>updatedAt :</p>
+                <p className={[cl.user_info__col20, cl.user_info_text_right].join(' ')}>Дата обновления :</p>
                 <p className={cl.user_info__col30}>{getDate(resultGet.data.updatedAt)}</p>
             </div>
             <div className={cl.user_info__row}>
-                <p className={[cl.user_info__col20, cl.user_info_text_right].join(' ')}>createdAt :</p>
+                <p className={[cl.user_info__col20, cl.user_info_text_right].join(' ')}>Дата создания :</p>
                 <p className={cl.user_info__col30}>{getDate(resultGet.data.createdAt)}</p>
             </div>
             <div className={cl.user_info__row}>

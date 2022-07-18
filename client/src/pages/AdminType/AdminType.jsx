@@ -45,7 +45,7 @@ const AdminType = () => {
                 <p className='admin-add-page__col30'>{resultGet.data.id}</p>
             </div>
             <div className='admin-add-page__row'>
-                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>Email :</p>
+                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>Название :</p>
                 <DefaultInput
                     className='admin-add-page__col30'
                     defaultValue={name}
@@ -55,11 +55,11 @@ const AdminType = () => {
                 />
             </div>
             <div className='admin-add-page__row'>
-                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>updatedAt :</p>
+                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>Дата обновления :</p>
                 <p className='admin-add-page__col30'>{getDate(resultGet.data.updatedAt)}</p>
             </div>
             <div className='admin-add-page__row'>
-                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>createdAt :</p>
+                <p className={['admin-add-page__col20', 'admin-add-page_text_right'].join(' ')}>Дата создания :</p>
                 <p className='admin-add-page__col30'>{getDate(resultGet.data.createdAt)}</p>
             </div>
             <div className='admin-add-page__row'>

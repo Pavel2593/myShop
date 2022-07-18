@@ -12,11 +12,11 @@ const AdminAddUser = () => {
     const roles = [
         {
             name: 'Админ',
-            value: 'ADMIN',
+            id: 'ADMIN',
         },
         {
             name: 'Пользователь',
-            value: 'USER',
+            id: 'USER',
         }
     ]
     const resultAdd = useFetching(addUser)

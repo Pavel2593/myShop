@@ -5,10 +5,21 @@ const ApiError = require('./../error/ApiError')
 const { where } = require('sequelize')
 
 class DeviceController {
-    async creat(request, response, next) {
+    async removeDevices(request, response, next) {
+        const { listId } = request.body;
+        const deletedDevices = await Device.destroy({
+            where: {
+                id: listId
+            }
+        })
+
+        return response.json(deletedDevices)
+    }
+
+    async addDevice(request, response, next) {
         try {
             let { name, price, brandId, typeId, info } = request.body
-            const { img } = request.files
+            const {img} = request.files
             let fileName = uuid.v4() + '.jpg'
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
@@ -78,14 +89,10 @@ class DeviceController {
         return response.json(devices)
     }
 
-    async getOne(request, response) {
-        const {id} = request.params
+    async getOne(request, response, next) {
+        const id = request.query.id
         const device = await Device.findOne({
-            where: {id},
-            include: [{
-                model: DeviceInfo,
-                as: 'info',
-            }]
+            where: { id }
         })
 
         return response.json(device)

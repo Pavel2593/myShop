@@ -3,16 +3,17 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 import { BorderButton, DefaultInput, DefaultLoader, FloodedButton } from '../../components/UI';
 import { useFetching } from '../../hooks/useFetching';
-import { getBrand, updateBrand } from '../../http/brandAPI';
+import { getDevice } from '../../http/deviceAPI';
+// import { getType, updateType } from '../../http/typeAPI';
 import { getDate } from '../../utils/getDate';
 
-const AdminBrand = () => {
+const AdminDevice = () => {
     const navigate = useNavigate()
     const params = useParams()
     const id = params.id
     const [name, setName] = useState('')
-    const resultGet = useFetching(getBrand)
-    const resultUpdate = useFetching(updateBrand)
+    const resultGet = useFetching(getDevice)
+    const resultUpdate = useFetching()
 
     useEffect(() => {
         // other code
@@ -29,7 +30,7 @@ const AdminBrand = () => {
     useEffect(() => {
         // other code
         if (resultUpdate.status === 200) {
-            navigate('/admin/brands/')
+            navigate('/admin/devices/')
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultUpdate.status])
@@ -82,8 +83,7 @@ const AdminBrand = () => {
                 </BorderButton>
             </div>
         </form>
-
     )
 }
 
-export default AdminBrand
+export default AdminDevice
