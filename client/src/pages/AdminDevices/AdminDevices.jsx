@@ -1,19 +1,20 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useFetching } from '../../hooks/useFetching'
-import { getUsers, deleteUsers } from '../../http/userAPI'
+import { deleteTypes, getTypes } from '../../http/typeAPI'
 import { DataGrid, GridRenderCellParams } from '@mui/x-data-grid';
 import { getDate } from '../../utils/getDate';
 import { Link } from 'react-router-dom';
 import { BorderButton, DefaultLoader, FloodedButton } from '../../components/UI';
 import { useState } from 'react';
 import EditIcon from '@mui/icons-material/Edit';
+import { getDevices } from '../../http/deviceAPI';
 
-const AdminUsers = () => {
-    const resultGet = useFetching(getUsers)
-    const resultDelete = useFetching(deleteUsers)
+const AdminDevices = () => {
+    const resultGet = useFetching(getDevices)
+    const resultDelete = useFetching(deleteTypes)
     const [checkedItems, setCheckedItems] = useState([])
-    
+
     useEffect(() => {
         // other code
         resultGet.fetching()
@@ -42,8 +43,8 @@ const AdminUsers = () => {
     return (
         <div className='admin__wrapper'>
             <div>
-                <Link to='./add-user' className='inline-block mb-20 mr-20'>
-                    <BorderButton className='box-shadow'>Добавить пользователя</BorderButton>
+                <Link to='./add-device' className='inline-block mb-20 mr-20'>
+                    <BorderButton className='box-shadow'>Добавить товар</BorderButton>
                 </Link>
                 {(checkedItems.length !== 0) &&
                     <div className='inline-block'>
@@ -63,9 +64,8 @@ const AdminUsers = () => {
                         rows={copyData}
                         columns={[
                             { field: 'id', headerName: 'id', width: 80 },
-                            { field: 'email', headerName: 'email', width: 250 },
-                            { field: 'role', headerName: 'Роль', width: 150 },
-                            { field: 'createdAt', headerName: 'Дата создания', width: 200 },
+                            { field: 'name', headerName: 'Название', width: 250 },
+                            { field: 'createdAt', headerName: 'Дата создания', width: 160 },
                             {
                                 field: 'updatedAt',
                                 headerName: 'Дата обновления',
@@ -97,4 +97,4 @@ const AdminUsers = () => {
     )
 }
 
-export default AdminUsers
+export default AdminDevices

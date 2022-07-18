@@ -5,7 +5,7 @@ export const fetchBrands = async () => {
     return response
 }
 
-export const fetchDevices = async (brandId, typeId, limit , page) => {
+export const getDevices = async (brandId, typeId, limit , page) => {
     const params = {
         params: {
             brandId,

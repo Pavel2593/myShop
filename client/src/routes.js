@@ -12,6 +12,8 @@ import AdminAddType from './pages/AdminAddType/AdminAddType'
 import AdminType from './pages/AdminType/AdminType'
 import AdminTypes from './pages/AdminTypes/AdminTypes'
 import AdminBrand from './pages/AdminBrand/AdminBrand'
+import AdminDevices from './pages/AdminDevices/AdminDevices'
+import AdminAddDevice from './pages/AdminAddDevice/AdminAddDevice'
 
 export const adminRoutesItem = [
     {
@@ -56,6 +58,13 @@ export const adminRoutesItem = [
         Component: Admin,
         SubComponent: AdminUser
     },
+    {
+        name: 'Товары',
+        path: ADMIN_ROUTER.adminDevices + '/add-device',
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminAddDevice
+    },
 ]
 
 export const adminRoutes = [
@@ -80,6 +89,14 @@ export const adminRoutes = [
         Component: Admin,
         SubComponent: AdminBrands
     },
+    {
+        name: 'Товары',
+        path: ADMIN_ROUTER.adminDevices,
+        role: process.env.REACT_APP_USER_ADMIN,
+        Component: Admin,
+        SubComponent: AdminDevices 
+    },
+
 ]
 
 export const authRoutes = [

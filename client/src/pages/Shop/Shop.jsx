@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useFetching } from '../../hooks/useFetching'
-import { fetchBrands, fetchDevices } from '../../http/deviceAPI'
+import { fetchBrands, getDevices } from '../../http/deviceAPI'
 import { getTypes } from '../../http/typeAPI'
 import DeviceList from '../../components/DevicesList/DeviceList'
 import Filter from '../../components/Filter/Filter'
@@ -12,7 +12,7 @@ const Shop = () => {
     const limit = 20;
     const [typeId, setTypeId] = useState(null)
     const [brandId, setBrandId] = useState(null)
-    const resultGetDevices = useFetching(fetchDevices)
+    const resultGetDevices = useFetching(getDevices)
     const resultGetTypes = useFetching(getTypes)
     const resultGetBrands = useFetching(fetchBrands)
 

@@ -3,6 +3,7 @@ export const ADMIN_ROUTER = {
     adminUsers: '/admin/users',
     adminTypes: '/admin/types',
     adminBrands: '/admin/brands',
+    adminDevices: '/admin/devices',
 }
 export const SHOP_ROUTER = '/shop'
 export const BASKET_ROUTER = '/basket'
