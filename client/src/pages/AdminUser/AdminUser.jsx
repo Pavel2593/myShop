@@ -20,11 +20,11 @@ const AdminUser = () => {
     const roles = [
         {
             name: 'Админ',
-            value: 'ADMIN',
+            id: 'ADMIN',
         },
         {
             name: 'Пользователь',
-            value: 'USER',
+            id: 'USER',
         }
     ]
 

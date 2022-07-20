@@ -28,13 +28,8 @@ export const getUsers = async (page, limit) => {
     return response
 }
 
-export const getUser = async (id) => {
-    const response = await $authHost.get('api/users/get-one', { params: { id: id } })
-    return response
-}
-
-export const addUser = async (email, password, role) => {
-    const response = await $authHost.post('api/users', { email, password, role })
+export const deleteUsers = async (listId) => {
+    const response = await $authHost.delete('api/users', { data: { listId } })
     return response
 }
 
@@ -43,7 +38,12 @@ export const updateUser = async (id, email, role) => {
     return response
 }
 
-export const deleteUsers = async (listId) => {
-    const response = await $authHost.delete('api/users', { data: { listId } })
+export const getUser = async (id) => {
+    const response = await $authHost.get('api/users/get-one', { params: { id: id } })
+    return response
+}
+
+export const addUser = async (email, password, role) => {
+    const response = await $authHost.post('api/users', { email, password, role })
     return response
 }

@@ -10,10 +10,10 @@ export const deleteDevices = async (listId) => {
     return response
 }
 
-// export const updateType = async (id, name) => {
-//     const response = await $authHost.patch('api/types', { id, name })
-//     return response
-// }
+export const updateDevices = async (id, name, price, type, brand, img) => {
+    const response = await $authHost.patch('api/devices', { id, name, price, type, brand, img })
+    return response
+}
 
 export const addDevice = async (name, price, brandId, typeId, img) => {
     const formData = new FormData()
@@ -27,7 +27,7 @@ export const addDevice = async (name, price, brandId, typeId, img) => {
     return response
 }
 
-export const getDevices = async (brandId, typeId, limit , page) => {
+export const getDevices = async (brandId, typeId, limit, page) => {
     const params = {
         params: {
             brandId,

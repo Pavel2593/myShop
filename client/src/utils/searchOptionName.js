@@ -1,10 +1,14 @@
-export const searchOptionName = (value, array) => {
-    const result = array.map((item) => {
-        if (value === item.value) {
-            return item.name
-        }
-
-        return ''
-    })
-    return result
+export const searchOptionName = (id, array) => {
+    if (array) {
+        const result = array.map((item) => {
+            if (id === item.id) {
+                return item.name
+            }
+    
+            return ''
+        })
+        return result
+    } else {
+        return false
+    }
 }

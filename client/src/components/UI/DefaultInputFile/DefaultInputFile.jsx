@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DefaultInputFile = ({ setFile, ...props }) => {
+const DefaultInputFile = ({ value, setFile, ...props }) => {
     return (
         <input
             type="file"
