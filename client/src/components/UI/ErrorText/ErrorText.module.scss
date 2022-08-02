@@ -1,0 +1,10 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.text {
+    display: block;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    line-height: 24px;
+    color: $error
+}

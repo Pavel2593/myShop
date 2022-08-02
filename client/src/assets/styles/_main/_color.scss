@@ -1,0 +1,23 @@
+$white: #fff;
+$black: #000;
+$darkShade: #1F2041;
+$darkShade75: rgba($color: $darkShade, $alpha: 0.75);
+$darkShade50: rgba($color: $darkShade, $alpha: 0.5);
+$darkShade25: rgba($color: $darkShade, $alpha: 0.25);
+$darkShade5: rgba($color: $darkShade, $alpha: 0.05);
+
+$error: #FF6347;
+
+$purple: #BC9CFF;
+$purpleDark: #8a6dcb;
+$purpleLight: #f0cdff;
+
+
+$purpleGradient: #8BA4F9;
+$green: #6FCF97;
+
+$boxShadow: 5px 10px 20px rgba($color: $darkShade, $alpha: 0.2);
+$boxShadowDark: 5px 10px 20px rgba($color: $darkShade, $alpha: 0.4);
+
+$boxShadowPurple: 5px 10px 20px rgba($color: $purple, $alpha: 0.4);
+$boxShadowPurpleDark: 5px 10px 20px rgba($color: $purpleDark, $alpha: 0.4);

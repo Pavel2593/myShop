@@ -1,0 +1,33 @@
+.admin-add-page {
+    width: 100%;
+
+    &__row {
+        padding: 10px 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__col30 {
+        display: flex;
+        align-items: center;
+        flex-basis: 40%;
+    }
+
+    &__col20 {
+        display: flex;
+        align-items: center;
+        flex-basis: 20%;
+    }
+
+    &_text_right {
+        padding-right: 40px;
+        box-sizing: border-box;
+        justify-content: flex-end;
+        white-space: nowrap;
+    }
+}

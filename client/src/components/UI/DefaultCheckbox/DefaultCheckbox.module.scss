@@ -1,0 +1,32 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.label {
+    min-height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    color: $darkShade50;
+}
+
+.checkbox {
+    display: none;
+
+    & + .label::before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        border: 2px solid $darkShade25;
+        background-color: $white;
+        cursor: pointer;
+    }
+
+    &:checked + .label::before {
+        border-color: $purple;
+        background-image: url('./../../../assets/images/icons/checkMark.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

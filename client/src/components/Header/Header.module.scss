@@ -1,0 +1,18 @@
+@use './../../assets/styles/_main/color' as *;
+
+.header {
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    background-color: $darkShade5;
+    box-shadow: $boxShadow;
+
+    &_mr {
+        margin-right: 20px;
+    }
+
+    &__auth {
+        display: flex;
+    }
+}

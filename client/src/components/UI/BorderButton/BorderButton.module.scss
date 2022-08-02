@@ -1,0 +1,28 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.button {
+    padding: 12px 20px;
+    border: 2px solid $purple;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+    color: $purple;
+    background-color: $white;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: initial;
+    }
+}

@@ -1,0 +1,14 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.leftBlock {
+    min-width: 250px;
+    max-width: 300px;
+    height: min-content;
+    margin-right: 20px;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-radius: 4px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: $boxShadowDark;
+}

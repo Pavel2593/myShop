@@ -1,0 +1,31 @@
+@use './../../../assets/styles/_main/color' as *;
+
+.pagination {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 12px;
+    color: $darkShade50;
+    background-color: $white;
+    cursor: pointer;
+}
+
+.item:not(:last-child) {
+    margin-right: 10px;
+}
+
+.itemCurrent {
+    color: $white;
+    background-color: $purple;
+}

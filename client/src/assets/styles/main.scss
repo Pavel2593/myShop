@@ -1,0 +1,50 @@
+@use './_main/reset';
+@use './_main/font';
+@use './_main/AdminAddPage';
+@use './_main/AdminTablePage';
+@use './_main/color' as *;
+@use './_main/styles';
+
+html, body, #root {
+    height: 100vh;
+}
+
+.page {
+    max-width: 1920px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.box-shadow {
+    box-shadow: $boxShadow;
+
+    &:hover {
+        box-shadow: $boxShadowDark;
+    }
+}

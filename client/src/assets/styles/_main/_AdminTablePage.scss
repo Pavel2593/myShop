@@ -1,0 +1,17 @@
+@use './color' as *;
+
+.admin {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__table {
+        flex-grow: 1;
+    }
+
+    &__icon {
+        color: $darkShade50;
+    }
+}
