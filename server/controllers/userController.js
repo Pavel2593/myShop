@@ -55,6 +55,7 @@ class UserController {
             return next(ApiError.badRequest('Пароль не верный'))
         }
         const token = generateJwt(user.id, user.email, user.role)
+        console.log(user)
         return response.json({ token })
     }
 

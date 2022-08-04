@@ -1,24 +1,29 @@
 import React, { useContext, useState } from 'react'
 import { observer } from 'mobx-react-lite';
 import { BorderButton } from '../UI'
-import { Context } from './../../../pages/_app'
+import { Context } from '../../../pages/_app'
 import AuthorizationPopup from '../AuthorizationPopup/AuthorizationPopup'
+import { AppContextInterface } from '../../../types/store';
 
-const Authorization = observer(({ className }) => {
-    const { user } = useContext(Context)
-    const isAuth = user.isAuth
-    const [showAuthPopup, setShowAuthPopup] = useState(false)
-    const logOut = () => {
-        user.setUser({})
+interface IAuthorization {
+    className?: string
+}
+
+const Authorization: React.FunctionComponent<IAuthorization> = observer(({ className }) => {
+    const { user }: AppContextInterface = useContext(Context)
+    const isAuth: boolean = user.isAuth
+    const [showAuthPopup, setShowAuthPopup] = useState<boolean>(false)
+    const logout = () => {
+        user.setUser('')
         user.setIsAuth(false)
         localStorage.removeItem('token')
     }
-    
+
     return (
         <div className={className}>
             <BorderButton
                 onClick={() => {
-                    logOut()
+                    logout()
                     !isAuth && setShowAuthPopup(true)
                 }}
             >

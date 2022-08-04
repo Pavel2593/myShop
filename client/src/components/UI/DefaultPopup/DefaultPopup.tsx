@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import cl from './DefaultPopup.module.scss'
 
-const DefaultPopup = ({children, title, show, setShow}) => {
+interface IDefaultPopup {
+    children: React.ReactNode
+    title?: string
+    show: boolean
+    setShow: Dispatch<SetStateAction<boolean>>
+}
 
-    const wrapperClasses = [cl.popupWrapper]
+const DefaultPopup: React.FunctionComponent<IDefaultPopup> = ({ children, title, show, setShow }) => {
+
+    const wrapperClasses: string[] = [cl.popupWrapper]
     if (show) {
         wrapperClasses.push(cl.popupWrapperActive);
     }

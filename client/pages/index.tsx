@@ -1,13 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { Context } from './_app'
-import { useContext } from 'react'
-import Header from './../src/components/Header/Header'
-import styles from '../styles/Home.module.css'
+import Header from '../src/components/Header/Header'
 
 const Home: NextPage = () => {
-  const {user} = useContext(Context)
   return (
     <div className='page'>
       <Head>
@@ -15,9 +11,10 @@ const Home: NextPage = () => {
         <meta name="description" content="catalog shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
+      <Header />
 
       <main>
+
       </main>
 
       {/* <footer className={styles.footer}>

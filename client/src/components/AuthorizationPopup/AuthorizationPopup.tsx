@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import AuthorizationForm from '../AuthorizationForm/AuthorizationForm'
 import RegistrationForm from '../RegistrationForm/RegistrationForm'
 import RegistrationLink from '../RegistrationLink/RegistrationLink'
 import { DefaultPopup } from '../UI'
 
-const AuthorizationPopup = ({ showPopup, setShowPopup }) => {
-    const [showRegistrationForm, setShowRegistrationForm] = useState(false)
-    const [popupTitle, setPopupTitle] = useState('Войти')
+interface IAuthorizationPopup {
+    showPopup: boolean
+    setShowPopup: Dispatch<SetStateAction<boolean>>
+}
+
+const AuthorizationPopup: React.FunctionComponent<IAuthorizationPopup> = ({ showPopup, setShowPopup }) => {
+    const [showRegistrationForm, setShowRegistrationForm] = useState<boolean>(false)
+    const [popupTitle, setPopupTitle] = useState<string>('Войти')
     return (
         <DefaultPopup
             title={popupTitle}
@@ -15,14 +20,14 @@ const AuthorizationPopup = ({ showPopup, setShowPopup }) => {
         >
             {
                 showRegistrationForm
-                ?
-                <RegistrationForm
-                    setShow={setShowPopup}
-                />
-                :
-                <AuthorizationForm
-                    setShow={setShowPopup}
-                />
+                    ?
+                    <RegistrationForm
+                        setShow={setShowPopup}
+                    />
+                    :
+                    <AuthorizationForm
+                        setShow={setShowPopup}
+                    />
             }
             {
                 !showRegistrationForm &&
